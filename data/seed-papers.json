@@ -1,0 +1,47 @@
+[
+  {
+    "id": "arxiv:2506.09985",
+    "title": "V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning",
+    "url": "https://arxiv.org/abs/2506.09985",
+    "published": "2025-06-11",
+    "topics": ["jepa", "world-model", "real-robot-manipulation"],
+    "evidence_level": "primary_fulltext_real_robot_author_report",
+    "summary": "互联网视频表征经DROID动作条件后训练，用视觉目标规划驱动真实Franka。作为路线基线，不是今日新增论文。",
+    "evidence": [{"url": "https://arxiv.org/html/2506.09985v1", "location": "Table 5; robot evaluation", "environment": "real_robot_two_labs", "metric": "cup pick-and-place mean success", "value": 80, "baseline": "Octo fine-tuned on DROID", "baseline_value": 15, "unit": "percent"}],
+    "limitations": ["作者报告，未独立复现", "任务范围有限，不能外推通用操作", "视觉目标条件，与语言指令基准不等价", "训练数据及规划计算预算不完全对齐"]
+  },
+  {
+    "id": "arxiv:2603.14482",
+    "title": "V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning",
+    "url": "https://arxiv.org/abs/2603.14482",
+    "published": "2026-03-15",
+    "updated": "2026-06-11",
+    "topics": ["jepa", "dense-representation", "real-robot-manipulation"],
+    "evidence_level": "primary_fulltext_real_robot_author_report",
+    "summary": "密集预测与多层监督改善表征；真实抓取同规划设置提升10个百分点，更长规划提升20个百分点但耗时增加。",
+    "evidence": [{"url": "https://arxiv.org/html/2603.14482v3", "location": "Section 3.3, Table 6", "environment": "real_franka_cup", "metric": "grasp success", "baseline": "V-JEPA 2; 800 samples, 10 iterations, horizon 1, 3 seconds", "baseline_value": 60, "value": 70, "unit": "percent", "protocol": "V-JEPA 2.1 matched planning setup; 10 tasks per skill"}, {"url": "https://arxiv.org/html/2603.14482v3", "location": "Table 6", "metric": "grasp success with longer planning", "value": 80, "unit": "percent", "protocol": "300 samples, 15 iterations, horizon 8, 14 seconds"}],
+    "limitations": ["+20点伴随规划预算改变，不能全归因于表征", "每技能仅10个任务，小样本", "pick-and-place为80%，此表没有提升", "真实机器人作者报告，非独立复现"]
+  },
+  {
+    "id": "pmlr:v267:gozeten25a",
+    "title": "Test-Time Training Provably Improves Transformers as In-context Learners",
+    "url": "https://proceedings.mlr.press/v267/gozeten25a.html",
+    "published": "2025-07",
+    "topics": ["test-time-training", "theory", "distribution-shift"],
+    "evidence_level": "primary_proceedings_abstract_theory_candidate",
+    "summary": "对线性Transformer单次梯度TTT给出分布对齐与样本复杂度分析，作为理论候选。",
+    "evidence": [{"url": "https://proceedings.mlr.press/v267/gozeten25a.html", "location": "Abstract", "environment": "linear_transformer_theory_and_TabPFN", "claim": "TabPFN分类实验报告所需样本减少3至5倍；理论限定线性Transformer及单步更新"}],
+    "limitations": ["尚未逐条审核定理完整假设，不标记为已证实突破", "不直接适用于任意深层非线性模型", "没有真实机器人操作验证", "会议日期精确到月，非预印本首次日期"]
+  },
+  {
+    "id": "arxiv:2512.23675",
+    "title": "End-to-End Test-Time Training for Long Context",
+    "url": "https://arxiv.org/abs/2512.23675",
+    "published": "2025-12-29",
+    "topics": ["test-time-training", "long-context", "meta-learning"],
+    "evidence_level": "primary_arxiv_abstract_method_candidate",
+    "summary": "通过测试时next-token更新与训练时元学习将上下文压缩进权重，是可追踪的方法候选。",
+    "evidence": [{"url": "https://arxiv.org/abs/2512.23675", "location": "Abstract", "environment": "language_modeling", "metric": "inference speedup over full attention at 128K context", "value": 2.7, "unit": "times", "protocol": "3B models trained with 164B tokens"}],
+    "limitations": ["仅核对原始摘要，硬件及完整计时协议待全文审核", "语言建模收益不能外推机器人控制", "不是理论保证或真实机器人基准", "不是今日新增论文"]
+  }
+]

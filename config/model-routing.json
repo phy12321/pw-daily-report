@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "objective": "Quality and decision usefulness first; optimize total cost including retries only after meeting evidence and privacy requirements.",
+  "model_pool": ["gpt-6-luna", "gpt-5.6-terra", "gpt-6-sol", "gpt-5.6-sol", "gpt-6-astra", "jev"],
+  "selection": {"mode": "dynamic_per_task", "criteria": ["context_tokens", "cross_source_dependencies", "task_difficulty", "capabilities", "tool_support", "error_impact", "measured_quality", "availability", "total_cost_including_retries"], "record_reason": true, "verify_context_and_tool_compatibility": true, "never_truncate_critical_evidence_to_fit_cheaper_model": true, "reasoning_effort": "adaptive", "no_mandatory_cheap_first_ladder": true},
+  "execution": "host_orchestrated_subagents",
+  "autonomous_model_runner_connected": false,
+  "stages": {
+    "collect_deduplicate": {"engine": "python", "model": null},
+    "work_context_extract": {"model": "dynamic", "requires_source_ids": true},
+    "public_candidate_extract": {"model": "dynamic", "batch_budget": "context_adaptive"},
+    "public_candidate_judgment": {"model": "dynamic", "jev_public_only": true, "jev_minimum_confidence": 0.85, "skip_when_deterministic_or_already_resolved": true},
+    "primary_evidence_extract": {"model": "dynamic", "requires_primary_source_locations": true},
+    "final_editor": {"model": "dynamic", "max_recommendations": 3, "max_watchlist": 2}
+  },
+  "reassess_model_or_gather_evidence_when": ["conflicting_evidence", "missing_baseline_or_budget", "theorem_assumptions_or_proof", "potential_technical_strategy_change", "low_confidence", "failed_source_validation"],
+  "review_policy": {"source_check_every_main_recommendation": true, "reviewer_selected_by_risk": true, "model_self_confidence_is_not_evidence": true, "audit_sample_of_rejections": true},
+  "evaluation": ["user_usefulness_feedback", "already_known_rate", "critical_omissions_from_audit", "factual_corrections", "decisions_or_experiments_supported", "latency", "actual_cost_when_available"],
+  "cost_policy": {"do_not_silently_upgrade_all_jobs": true, "no_new_evidence_skip_model_calls": true, "record_actual_usage_when_available": true, "monetary_budget": null}
+}

@@ -1,0 +1,12 @@
+config/private.json
+config/private*.json
+config/*secret*.json
+state/
+reports/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+config/secrets.json
+.venv/
+*.log
