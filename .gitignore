@@ -10,3 +10,8 @@ __pycache__/
 config/secrets.json
 .venv/
 *.log
+
+# Local research and validation notes, not part of the reusable skill.
+docs/paper-source-findings.md
+docs/search1api-validation.md
+docs/validation.md
