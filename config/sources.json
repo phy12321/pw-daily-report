@@ -29,11 +29,12 @@
     "status": "host_agent_discovery_protocol_not_an_unattended_collector",
     "audience": "company_wide_decision_usefulness_including_ceo",
     "public_discovery_window": "Asia/Shanghai calendar dates D-7 through D, inclusive; re-search the full window daily rather than cutting off at the last delivered brief",
-    "candidate_novelty": "Any in-window report not covered in a delivered brief is a new-information candidate, even if the underlying paper or event is older; retain separate report, event and original-publication dates",
+    "candidate_novelty": "Any in-window report or original analysis not covered in a delivered brief is a candidate, even if the underlying paper or event is older; retain separate article, event and original-publication dates, and deduplicate core theses as well as events",
+    "insight_policy": "Original industry or technical analysis may enter the brief without a new paper or event if its argument is relevant, substantive and not previously reported. Record the author's thesis, reasoning, assumptions, factual support and decision implication; attribute interpretations and predictions, verify factual claims, and deduplicate repeated theses.",
     "focus_config": "config/focus.json",
     "lanes": [
       {"id": "academic", "name": "学术", "search_intent": "具身操作、JEPA/世界模型、推理时适应、ICL 的新论文、代码、评测和重要反例", "preferred_evidence": ["论文原文", "代码/模型发布", "公开评测协议"]},
-      {"id": "industry", "name": "产业与同行", "search_intent": "具身公司产品发布、能力演示、客户部署、合作与融资中对技术或市场判断有影响的变化", "preferred_evidence": ["公司原始发布", "演示原视频及条件", "客户/合作方独立确认", "可信媒体报道"]},
+      {"id": "industry", "name": "产业与同行", "search_intent": "具身公司产品发布、能力演示、客户部署、合作与融资，以及有独到论证的行业/技术洞察", "preferred_evidence": ["公司原始发布", "演示原视频及条件", "客户/合作方独立确认", "分析原文及其事实依据"]},
       {"id": "industrial", "name": "工业与场景", "search_intent": "制造、仓储、零售理货、家庭服务等具身系统的真实部署、任务完成率、成本、可靠性和集成约束", "preferred_evidence": ["部署方原始信息", "任务与环境记录", "成本/可靠性指标", "第三方核验"]},
       {"id": "frontier_science", "name": "前沿科学", "search_intent": "神经科学、认知科学、控制、仿真与新型感知对具身学习或行动有明确启发的成果", "preferred_evidence": ["研究原文", "可复现方法", "机器人演示原视频", "跨领域迁移验证"]}
     ],
@@ -50,12 +51,13 @@
       {"name": "非共识机器人", "identity_verified": false},
       {"name": "晚点lastpost", "identity_verified": false},
       {"name": "sourcemind", "identity_verified": false},
+      {"name": "human five", "identity_verified": false},
       {"name": "天南具身公园", "identity_verified": true, "verification_basis": "user-supplied article metadata via Search1API; stable account ID not yet resolved"}
     ],
     "seed_articles": [
       {"url": "https://mp.weixin.qq.com/s/sxftBxmYn3ACkAP27cBp_g", "account": "天南具身公园", "fetch_status": "body_fetched_via_search1api", "checked_on": "2026-09-27"}
     ],
-    "policy": "Discovery sources only; trace technical claims to original papers and experiments, deduplicate syndicated reports."
+    "policy": "Discover both news and original industry/technical insights, including similarly thoughtful accounts beyond this watchlist. Verify account, publication date and factual claims; attribute analysis to its author, distinguish interpretation from independently verified evidence, and deduplicate repeated theses. Search1API does not provide a verified complete subscription."
   },
   "feeds": [
     {"id": "arxiv-cs.RO", "url": "https://rss.arxiv.org/rss/cs.RO", "enabled": true},

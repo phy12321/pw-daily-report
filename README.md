@@ -41,7 +41,7 @@ python3 pipeline.py publish-chat
 
 ## 微信入口
 
-默认使用Search1API（每次显式调用，不自动充值）：`python3 search1api_client.py search --query '公众号名 主题'`只搜线索，`python3 search1api_client.py crawl --url 'https://mp.weixin.qq.com/s/文章'`提取正文，`python3 search1api_client.py usage`查余额。结果保存到`state/search1api/`，是待审核证据，尚未自动汇入简报。密钥优先读`SEARCH1API_KEY`，其次读被Git排除的`config/secrets.json`；不要回显该文件。尚无云端定时执行。
+默认使用Search1API（每次显式调用，不自动充值）：`python3 search1api_client.py search --query '公众号名 主题'`只搜线索，`python3 search1api_client.py crawl --url 'https://mp.weixin.qq.com/s/文章'`提取正文，`python3 search1api_client.py usage`查余额。关注名单见`config/sources.json`（含human five）；除新报道外，也筛选有独到论证的行业/技术洞察，并区分作者观点与已核实事实。结果保存到`state/search1api/`，是待审核证据，尚未自动汇入简报。密钥优先读`SEARCH1API_KEY`，其次读被Git排除的`config/secrets.json`；不要回显该文件。尚无云端定时执行。
 
 ```bash
 python3 pipeline.py import-wechat --url 'https://mp.weixin.qq.com/s/具体文章'
