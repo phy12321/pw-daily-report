@@ -23,7 +23,8 @@ python3 pipeline.py publish-chat
 ## 配置与产物
 
 - `config/private.json`：只读群范围、Wiki链接、用户ID、核实后的发布会话；不保存密钥。
-- `config/sources.json`：arXiv公开RSS、重点主题、四路检索规则、跨期内容去重政策、时间范围和分页预算。`state/reported-events.json`保存已送达简报的选题历史；`docs/discovery-map.md`扩充候选来源与细粒度技术轴，候选入口不代表脚本已接通新闻订阅。
+- `config/focus.json`：可直接编辑的关注方向、技术路线、topic、商业问题与优先级；`rss_topic_patterns`同时驱动脚本的RSS候选初筛。未确认的公司商业模式和候选场景单独标记，不当作既定战略。
+- `config/sources.json`：arXiv公开RSS、来源清单、四路检索规则、跨期内容去重政策、时间范围和分页预算。`state/reported-events.json`保存已送达简报的选题历史；`docs/discovery-map.md`扩充候选来源与细粒度技术轴，候选入口不代表脚本已接通新闻订阅。
 - `state/raw/`：完整原始读取响应，含私有资料，限本地使用。
 - `state/packet.json`：最近一次增量；`state/evidence-queue.json`保留尚待处理的历史增量。
 - `state/context-summary.json`：已有工作/认知基线；`state/context-delta.json`：子agent提出的证据增量，未自动当作掌握状态。

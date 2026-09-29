@@ -87,6 +87,17 @@ class PipelineTests(unittest.TestCase):
         self.assertFalse(more)
         self.assertTrue(p.feed_items(raw, ['JEPA'], self.now - 7*86400, self.now, 0)[1])
 
+    def test_collect_uses_editable_focus_for_rss_prefilter(self):
+        p.save(self.root / 'config/focus.json', {'rss_topic_patterns': ['robot.*manipulat']})
+        p.save(self.root / 'config/sources.json', {'feeds': [
+            {'id': 'test-feed', 'url': 'https://example.com/rss', 'enabled': True}]})
+        raw = (b'<rss><channel>'
+               b'<item><title>JEPA representation</title><pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate></item>'
+               b'<item><title>Robot manipulation</title><pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate></item>'
+               b'</channel></rss>')
+        packet = p.collect(self.root, self.now, fetcher=lambda _: raw)
+        self.assertEqual([item['title'] for item in packet['items']], ['Robot manipulation'])
+
     def test_document_revision_dedup(self):
         p.save(self.root / 'config/private.json', {'wiki_urls': ['https://example/wiki/a']})
         runner = lambda _: {'ok': True, 'data': {'document': {'revision_id': 1, 'content': 'model'}}}

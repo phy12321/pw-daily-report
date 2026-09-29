@@ -9,7 +9,7 @@ description: 为粒子世界生成、审阅或在明确授权下推送具身研�
 
 ## 读取与执行
 
-- 生成或推送完整简报前，完整读取项目根目录下的`docs/briefing-sop.md`、`docs/agent-workflow.md`、`docs/discovery-map.md`，并读取`docs/screening-feedback.md`、`config/sources.json`、`config/model-routing.json`。脚本只负责确定性采集和发送校验；候选取舍、原始证据复核及最终编辑仍由agent完成。
+- 生成或推送完整简报前，完整读取项目根目录下的`docs/briefing-sop.md`、`docs/agent-workflow.md`、`docs/discovery-map.md`，并读取`docs/screening-feedback.md`、`config/focus.json`、`config/sources.json`、`config/model-routing.json`。脚本只负责确定性采集和发送校验；候选取舍、原始证据复核及最终编辑仍由agent完成。
 - 仅审阅文章或校准PR时，完整读取`docs/briefing-sop.md`；不因审阅而读取私有聊天或发送消息。
 - 修改规则时，只改对应规则的主文件，必要时同步本入口；保留用户最新反馈。
 
@@ -17,7 +17,7 @@ description: 为粒子世界生成、审阅或在明确授权下推送具身研�
 
 读者包括公司研究员及CEO。逐日检索北京时间当日及之前7天（含两端）的学术、同行产业、工业部署与相关前沿科学；四类均检查，不按类别凑稿。此前已送达简报未提及的窗口内报道均是新信息候选，不要求论文或事件当日首发，但要分别标清报道、事件和原始研究日期。先按公司技术路线与商业模式相关程度，再按发布时间排序；核对`state/reported-events.json`及已投递简报，已报道事项的转载或无实质变化修订不重报。
 
-关注JEPA/世界模型、test-time training、AMI Labs/Yann LeCun及具身操作。公开操作评测如RoboDojo、LIBERO-Plus、RoboTwin可支持主推，不要求真机；Push-T等toy证据不等同实际操作收益。论文核原文和对照；企业发布、演示及公众号稿区分自述、独立验证和预测。PR先讲可借鉴的机制与落地线索，再交代证据边界。
+关注方向与商业问题以`config/focus.json`为准，不把待确认场景或商业模式写成公司既定路线。公开操作评测如RoboDojo、LIBERO-Plus、RoboTwin可支持主推，不要求真机；Push-T等toy证据不等同实际操作收益。论文核原文和对照；企业发布、演示及公众号稿区分自述、独立验证和预测。PR先讲可借鉴的机制与落地线索，再交代证据边界。
 
 写作使用团队已有认知和通用因果解释新机制；每条仅保留本质、关键证据/限制及公司意义。后台完整检索，正文精炼，不展示检索矩阵或日志。
 

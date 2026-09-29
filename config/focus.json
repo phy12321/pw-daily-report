@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "updated_on": "2026-09-29",
+  "purpose": "每日简报的公司相关性与选题优先级；人工可编辑，不代表自动订阅已接通。",
+  "decision_context": {
+    "audience": "粒子世界全公司，包括CEO与模型研发团队",
+    "owner_role": "模型研发与推进的主要技术负责人（用户自述，约CTO-1）",
+    "ranking": ["与已确认的技术路线、产品能力及商业问题的相关度", "报道发布时间"],
+    "novelty": "北京时间当日及此前7天发布、此前简报未报道；旧事项仅在有实质新证据时重报新增部分"
+  },
+  "confirmed_interests": [
+    {
+      "id": "jepa-world-model",
+      "priority": "high",
+      "topics": ["JEPA/联合嵌入预测", "动作条件世界模型", "表征学习", "规划与记忆"],
+      "question": "预测表征能否改善机器人闭环行动，而不只是预测视频或静态特征？",
+      "watch": ["AMI Labs", "Yann LeCun 的相关原始研究；逐篇核实署名"]
+    },
+    {
+      "id": "test-time-adaptation",
+      "priority": "high",
+      "topics": ["test-time training", "测试时/在线参数更新", "具身ICL与上下文适应"],
+      "question": "新任务或新环境中具体更新了什么、用了多少额外数据/算力，收益是否跨任务成立？"
+    },
+    {
+      "id": "embodied-operation",
+      "priority": "high",
+      "topics": ["具身操作", "跨场景与跨本体泛化", "复杂操作公开评测"],
+      "question": "是否在RoboDojo、LIBERO-Plus、RoboTwin等公开操作任务上有可信提升？真机是加分项，不是硬门槛；Push-T等toy证据不能代替复杂操作收益。"
+    },
+    {
+      "id": "research-automation",
+      "priority": "medium",
+      "topics": ["研发自动化", "自动实验闭环", "模块化研究平台"],
+      "question": "流程是否实际减少实验集成、等待或人工分析；效率数字是否有可比基线？"
+    }
+  ],
+  "coverage_interests_not_confirmed_as_company_route": [
+    {"id": "policy-and-data", "topics": ["VLA与动作策略", "模仿/RL", "数据采集与合成", "交互式仿真", "sim-to-real"], "reason": "可能改变模型、数据或评测路线"},
+    {"id": "deployment", "topics": ["制造/装配", "仓储/分拣", "零售/理货", "家庭服务", "可靠性与人工接管"], "reason": "可能影响产品能力与部署成本；具体公司目标场景待确认"},
+    {"id": "frontier-transfer", "topics": ["神经科学与运动控制", "可迁移的前沿AI/科学"], "reason": "只在能解释具身迁移链条时关注"}
+  ],
+  "business_model": {
+    "company_model_confirmed": false,
+    "confirmed_claims": [],
+    "questions_to_watch": [
+      "客户愿为哪类任务结果付费，采购与交付主体是谁？",
+      "单任务成本、人工接管、吞吐与持续运行是否支持规模化？",
+      "优势来自模型、数据闭环、硬件集成、部署网络，还是特定场景的系统工程？",
+      "同行的试点、付费部署、复购与规模扩张分别有何独立证据？"
+    ],
+    "rule": "这些是简报筛选维度，不是对粒子世界既定商业模式的断言；更新为公司事实前须有用户确认或可核实内部证据。"
+  },
+  "rss_topic_patterns": [
+    "\\bJEPA\\b",
+    "joint.embedding.predict",
+    "world.model",
+    "test.time.train",
+    "robot.*manipulat",
+    "embodied.*reason",
+    "\\bAMI\\s+Labs?\\b",
+    "Yann\\s+Le\\s*Cun",
+    "世界模型",
+    "具身",
+    "测试时训练"
+  ]
+}

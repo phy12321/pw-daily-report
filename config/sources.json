@@ -11,7 +11,6 @@
     "transport_idempotency_unchanged": true,
     "note": "From 2026-09-29, include only timely facts not reported in any delivered private or group brief. A material new result on a known topic is eligible only for the new evidence, not a recap. The 2026-09-28 first group issue was a one-time exception."
   },
-  "topic_patterns": ["\\bJEPA\\b", "joint.embedding.predict", "world.model", "test.time.train", "robot.*manipulat", "embodied.*reason", "\\bAMI\\s+Labs?\\b", "Yann\\s+Le\\s*Cun", "世界模型", "具身", "测试时训练"],
   "research_watchlist": [
     {
       "id": "ami-labs",
@@ -31,14 +30,13 @@
     "audience": "company_wide_decision_usefulness_including_ceo",
     "public_discovery_window": "Asia/Shanghai calendar dates D-7 through D, inclusive; re-search the full window daily rather than cutting off at the last delivered brief",
     "candidate_novelty": "Any in-window report not covered in a delivered brief is a new-information candidate, even if the underlying paper or event is older; retain separate report, event and original-publication dates",
-    "ranking": ["relevance_to_company_technical_route_and_business_model", "report_publication_time"],
+    "focus_config": "config/focus.json",
     "lanes": [
       {"id": "academic", "name": "学术", "search_intent": "具身操作、JEPA/世界模型、推理时适应、ICL 的新论文、代码、评测和重要反例", "preferred_evidence": ["论文原文", "代码/模型发布", "公开评测协议"]},
       {"id": "industry", "name": "产业与同行", "search_intent": "具身公司产品发布、能力演示、客户部署、合作与融资中对技术或市场判断有影响的变化", "preferred_evidence": ["公司原始发布", "演示原视频及条件", "客户/合作方独立确认", "可信媒体报道"]},
       {"id": "industrial", "name": "工业与场景", "search_intent": "制造、仓储、零售理货、家庭服务等具身系统的真实部署、任务完成率、成本、可靠性和集成约束", "preferred_evidence": ["部署方原始信息", "任务与环境记录", "成本/可靠性指标", "第三方核验"]},
       {"id": "frontier_science", "name": "前沿科学", "search_intent": "神经科学、认知科学、控制、仿真与新型感知对具身学习或行动有明确启发的成果", "preferred_evidence": ["研究原文", "可复现方法", "机器人演示原视频", "跨领域迁移验证"]}
     ],
-    "relevance_gate": ["模型或数据路线", "机器人产品能力", "具体业务场景", "部署成本和规模化", "竞争态势或商业时机"],
     "discovery_rule": "按docs/discovery-map.md的分层来源与多轴技术叶子动态检索并查漏；记录检查时间、候选、遗漏/失败；不强制每类每天入选，不把未发现等同于没有更新。检索策略和标签不进入正文。",
     "breaking_rule": "高度相关且有可核实原始来源的突发成果进入待广播队列；若此前已报道，日报只汇报新增的实质证据。该规则本身未启用实时监听；每日定时群发由单独授权任务执行。"
   },
